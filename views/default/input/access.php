@@ -33,7 +33,7 @@ if ($vars['value'] == ACCESS_DEFAULT) {
 	$vars['value'] = get_default_access();
 }
 
-if (!elgg_in_context("admin") && !elgg_in_context("widgets") && !elgg_in_context("thewire")) {
+if (!elgg_in_context("admin") && !elgg_in_context("widgets") && !elgg_in_context("thewire") && !elgg_in_context("menu_builder_form")) {
 	$value = elgg_extract("value", $vars);
 	
 	$access_id_string = get_readable_access_level($value);

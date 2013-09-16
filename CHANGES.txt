@@ -1,5 +1,9 @@
 = Version History =
 
+x.x:
+
+- added: menu_builder special context to the input/access exceptions
+
 1.0 (2013-07-31):
 
 - first release
