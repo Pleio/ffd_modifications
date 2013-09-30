@@ -1,6 +1,6 @@
 = Version History =
 
-x.x:
+1.1 (2013-09-30):
 
 - added: menu_builder special context to the input/access exceptions
 - fixed: group_tools default access was causing problems
