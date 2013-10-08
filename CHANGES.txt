@@ -1,5 +1,9 @@
 = Version History =
 
+x.x:
+
+- fixed: forgot to commit input/access not saving settings
+
 1.1 (2013-09-30):
 
 - added: menu_builder special context to the input/access exceptions

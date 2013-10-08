@@ -40,6 +40,7 @@ if (!elgg_in_context("admin") && !elgg_in_context("widgets") && !elgg_in_context
 	$access_id_string = htmlspecialchars($access_id_string, ENT_QUOTES, 'UTF-8', false);
 	
 	echo "<span class='" . $class . "'>" . $access_id_string . "</span>";
+	echo elgg_view("input/hidden", $vars);
 } elseif (is_array($vars['options_values']) && sizeof($vars['options_values']) > 0) {
 	echo elgg_view('input/dropdown', $vars);
 }
