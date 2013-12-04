@@ -3,6 +3,7 @@
 x.x:
 
 - fixed: forgot to commit input/access not saving settings
+- changed: discussion friendly time to normal time 
 
 1.1 (2013-09-30):
 
