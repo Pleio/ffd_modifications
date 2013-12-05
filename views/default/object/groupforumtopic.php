@@ -25,7 +25,11 @@ $poster_link = elgg_view('output/url', array(
 $poster_text = elgg_echo('groups:started', array($poster->name));
 
 $tags = elgg_view('output/tags', array('tags' => $topic->tags));
-$date = elgg_view_friendly_time($topic->time_created);
+// date no longer in friendly time
+$friendly_time = htmlspecialchars(elgg_get_friendly_time($topic->time_created));
+$timestamp = htmlspecialchars(date(elgg_echo('friendlytime:date_format'), $topic->time_created));
+
+$date = "<acronym title=\"$friendly_time\">$timestamp</acronym>";
 
 $replies_link = '';
 $reply_text = '';
@@ -37,7 +41,12 @@ $num_replies = elgg_get_annotations(array(
 if ($num_replies != 0) {
 	$last_reply = $topic->getAnnotations('group_topic_post', 1, 0, 'desc');
 	$poster = $last_reply[0]->getOwnerEntity();
-	$reply_time = elgg_view_friendly_time($last_reply[0]->time_created);
+	// replytime no longer in friendly time
+	$friendly_time = htmlspecialchars(elgg_get_friendly_time($topic->time_created));
+	$timestamp = htmlspecialchars(date(elgg_echo('friendlytime:date_format'), $topic->time_created));
+	
+	$reply_time = "<acronym title=\"$friendly_time\">$timestamp</acronym>";
+	
 	$reply_text = elgg_echo('groups:updated', array($poster->name, $reply_time));
 	
 	$replies_link = elgg_view('output/url', array(
