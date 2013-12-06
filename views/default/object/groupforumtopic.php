@@ -42,8 +42,8 @@ if ($num_replies != 0) {
 	$last_reply = $topic->getAnnotations('group_topic_post', 1, 0, 'desc');
 	$poster = $last_reply[0]->getOwnerEntity();
 	// replytime no longer in friendly time
-	$friendly_time = htmlspecialchars(elgg_get_friendly_time($topic->time_created));
-	$timestamp = htmlspecialchars(date(elgg_echo('friendlytime:date_format'), $topic->time_created));
+	$friendly_time = htmlspecialchars(elgg_get_friendly_time($last_reply[0]->time_created));
+	$timestamp = htmlspecialchars(date(elgg_echo('friendlytime:date_format'), $last_reply[0]->time_created));
 	
 	$reply_time = "<acronym title=\"$friendly_time\">$timestamp</acronym>";
 	
