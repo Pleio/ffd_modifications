@@ -93,18 +93,29 @@ $body
 HTML;
 
 } else {
+	
+	$title = "";
+	if ($topic->status == "closed") {
+		$title .= "<span title='" . htmlspecialchars(elgg_echo("groups:topicisclosed"), ENT_QUOTES, "UTF-8", false) . "'>" . elgg_view_icon("lock-closed") . "</span>";;
+	}
+	$title .= elgg_view("output/url", array(
+			"text" => $topic->title,
+			"href" => $topic->getURL(),
+			"is_trusted" => true
+	));
+	
 	// brief view
 	$subtitle = "$poster_text $date $replies_link <span class=\"groups-latest-reply\">$reply_text</span>";
 
 	$params = array(
 		'entity' => $topic,
 		'metadata' => $metadata,
+		'title' => $title,
 		'subtitle' => $subtitle,
-		'tags' => $tags,
-		'content' => $excerpt,
+		'tags' => $tags
 	);
 	$params = $params + $vars;
 	$list_body = elgg_view('object/elements/summary', $params);
 
-	echo elgg_view_image_block($poster_icon, $list_body);
+	echo elgg_view_image_block($poster_icon, $list_body, array("class" => "ffd-modifications-group-forum-topic"));
 }
