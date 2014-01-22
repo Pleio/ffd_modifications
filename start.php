@@ -27,7 +27,7 @@
 		if(!empty($return_value) && is_array($return_value)){
 			$page = $return_value['segments'];
 				
-			if ($page[0] = "all") {
+			if ($page[0] == "all") {
 				$result = false;
 				
 				elgg_pop_breadcrumb();
