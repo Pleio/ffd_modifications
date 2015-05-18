@@ -1,0 +1,7 @@
+{
+    "name": "pleio/ffd_modifications",
+    "type": "elgg-plugin",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
